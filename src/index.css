@@ -46,7 +46,6 @@ nav {
   top:20px;
   display:inline;
   padding:5px;
-  background-color:yellow;
   z-index:6;
   font-family:"Apple Chancery", cursive;
   font-size: 20px;
@@ -538,7 +537,7 @@ z-index: 5;
 
 .calendar {
   position:relative;
-  top:-130px;
+  top:165px;
   left:180px;
   color:red;
   font-size:28px;

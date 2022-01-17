@@ -101,23 +101,23 @@ function go(deg, speed) {
     x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
     y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg=0) {
+  if(deg==0) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   }else
-  if(deg=90) {
+  if(deg==90) {
   x=0
   y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg=180) {
+  if(deg==180) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   } else
-  if(deg=270) {
+  if(deg==270) {
     x=0
   y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg=360) {
+  if(deg==360) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   }
@@ -132,7 +132,6 @@ function go(deg, speed) {
     let data = await response.json()
     console.log(data)
     return data
-    console.log(lat,lon)
     }
     catch(err){
     alert(err)
@@ -141,7 +140,7 @@ function go(deg, speed) {
 
 async function line() { 
 for (let i=2;i<arrayArc.length; i+=2) {
-  if (arrayArc[i]==arrayArc[i-2]&&arrayArc[i+1]==arrayArc[i-1]) {
+  if (arrayArc[i]===arrayArc[i-2]&&arrayArc[i+1]===arrayArc[i-1]) {
  arrayArc.splice(i,2)}
   }
  let res1=nextValue()
@@ -159,7 +158,7 @@ for (let i=2;i<arrayArc.length; i+=2) {
     document.getElementById('cartina').style.backgroundImage='none'
     document.getElementById('mesto').style.backgroundImage='linear-gradient(to right,white,lightgreen)'
     for(let i =2;i<arrayArc.length-1; i+=2) {
-      if(arrayArc[i]==arrayArc[i-2]&&arrayArc[i+1]==arrayArc[i-1]){
+      if(arrayArc[i]===arrayArc[i-2]&&arrayArc[i+1]===arrayArc[i-1]){
         arrayArc.splice(i,2)}/*else {calendar=calendar+1}*/
         console.log(calendar)
       }
@@ -319,7 +318,7 @@ const Place = ({onNewPlace})=> {
    const submit = e => {
    e.preventDefault()
    onNewPlace(_place.value, _z.value, _lo)
-   return _place, _z, _lo
+   return [_place, _z, _lo]
  }
  return (
    <form onSubmit = {submit}>
@@ -528,7 +527,7 @@ class Map extends React.Component {
               increment:null,
               dist1:null,
               go1:null,
-              cloudness:true
+              cloudness:false
         }
 
 
@@ -667,6 +666,8 @@ class Map extends React.Component {
     for (let i = 0;i<100;i++) {
       document.getElementById(i).style.opacity=0
       }
+      /*let cloudness = false
+      this.setState (cloudness*/      
       this.state.cloudness=false
       console.log(this.state.cloudness)
     }
@@ -697,7 +698,11 @@ class Map extends React.Component {
       for (let i=0;i<arr3.length+1;i++) {
         const array4 = arr3.map(i=>document.getElementById(i).style.opacity='1')
       }
-     this.state.cloudness=true} 
+     
+      /*let cloudness= true
+      this.setState(cloudness)
+      }*/   
+      this.state.cloudness=true }
 
        choose() {
          (this.state.cloudness)?

@@ -12,8 +12,7 @@ import {Tablo} from './Tablo.js'
 
 
 function App() {
- 
-  return (
+   return (
     <div className="App">
 <Routes>
   <Route path = "/" element = {<Tablo/>}/>
