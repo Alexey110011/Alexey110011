@@ -534,7 +534,9 @@ color:rgb(107, 19, 3);
 font-size: 24px;
 z-index: 5;
 }  
-
+#veter {
+  border-color: lightgreen;
+}
 .calendar {
   position:relative;
   top:165px;

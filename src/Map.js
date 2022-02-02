@@ -1,6 +1,6 @@
-import { clear } from '@testing-library/user-event/dist/clear';
+//import { clear } from '@testing-library/user-event/dist/clear';
 import React from 'react'
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 
 let x;
 let y;
@@ -9,7 +9,7 @@ let b;
 let day =0;
 let calendar=0;
 let distance;
-let place;
+//let place;
 let name1;
 let country1;
 export let lat = a;
@@ -101,23 +101,23 @@ function go(deg, speed) {
     x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
     y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg==0) {
+  if(deg===0) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   }else
-  if(deg==90) {
+  if(deg===90) {
   x=0
   y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg==180) {
+  if(deg===180) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   } else
-  if(deg==270) {
+  if(deg===270) {
     x=0
   y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
   } else
-  if(deg==360) {
+  if(deg===360) {
   x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
   y=0
   }
@@ -343,8 +343,8 @@ const Place = ({onNewPlace})=> {
 
  export const Diary = ({days})=> {
   return(
-    <div className ='diary'>
-    <div className = "day1">День</div><div className = "point">Пункт прибытия</div><div className="distance1">Расстояние</div>
+     <div className ='diary'>
+     <div className = "day1">День</div><div className = "point">Пункт прибытия</div><div className="distance1">Расстояние</div>
     {days.map((day,index)=>
     <Day key = {index}{...day}/>
     )}
@@ -378,11 +378,11 @@ const Place = ({onNewPlace})=> {
           <div>Средняя скорость: {v}</div>
       </div>)
 }
-   const Fly=({days})=>{
+   /*const Fly=({days})=>{
      return (
        <span>Перелет{days.distance}</span>
      )
-   }
+   }*/
 
   export const Shylda = ({days}) => {
     for (let i = 0;i<days.length; i++) {
@@ -409,7 +409,7 @@ let _jour
       </div>)
 }
 
-export const Tablo=({arr}) => { 
+/*export const Tablo=({arr}) => { 
   for (let i = 0;i<6;i++) {
   let front = document.createElement('div')
   front.className='front'
@@ -464,7 +464,7 @@ let tran = document.getElementsByClassName('front')
       tran1[i].style.transitionDelay  ='12s'
     }
 })
-
+``
 let calendar1;
   for (let i = 0;i<arrayEmp.length; i++) {
       calendar1=arrayEmp.map((i, index)=>i)}
@@ -476,7 +476,7 @@ let calendar1;
 <div className ='marker_yellow'></div>   
 <div className ='marker_green'></div>   
 </div>)    
-}
+}*/
 
    
 class Map extends React.Component {
@@ -523,7 +523,8 @@ class Map extends React.Component {
             route:null
             },
             jour: {
-              jour:null},
+              jour:null
+            },
               increment:null,
               dist1:null,
               go1:null,
@@ -620,7 +621,7 @@ class Map extends React.Component {
         }
       ]
       for (let i =1; i<(days.length+1);i++) {
-      if (JSON.stringify(days[i])==JSON.stringify(days[i-1])) {
+      if (JSON.stringify(days[i])===JSON.stringify(days[i-1])) {
         days.splice(i,1)
       }
     }
@@ -666,9 +667,8 @@ class Map extends React.Component {
     for (let i = 0;i<100;i++) {
       document.getElementById(i).style.opacity=0
       }
-      /*let cloudness = false
-      this.setState (cloudness*/      
-      this.state.cloudness=false
+      let cloudness = false
+      this.setState({cloudness})
       console.log(this.state.cloudness)
     }
     
@@ -698,11 +698,11 @@ class Map extends React.Component {
       for (let i=0;i<arr3.length+1;i++) {
         const array4 = arr3.map(i=>document.getElementById(i).style.opacity='1')
       }
-     
-      /*let cloudness= true
-      this.setState(cloudness)
-      }*/   
-      this.state.cloudness=true }
+    
+      let cloudness= true
+      this.setState({cloudness})
+    }
+      
 
        choose() {
          (this.state.cloudness)?
@@ -787,8 +787,7 @@ class Map extends React.Component {
             <div className="statistics">
             <Diary days = {days}/>
             <div id ='average'><Average days={days}/></div>
-          
-           <div className = 'jour'><Jour onJour = {showJour} onDist ={showDist} dist1 = {dist1}/></div> 
+            <div className = 'jour'><Jour onJour = {showJour} onDist ={showDist} dist1 = {dist1}/></div> 
            </div>
       </div>
         )
