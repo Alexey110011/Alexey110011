@@ -67,7 +67,7 @@ export function Tablo() {
       <>
       <div id='fon'>
       <nav>
-    <Link to="/map">Map</Link>
+    <Link to="/map">Полет</Link>
     </nav>
   
         <div id = "markers1"> 

@@ -1,6 +1,5 @@
-//import { clear } from '@testing-library/user-event/dist/clear';
 import React from 'react'
-//import {Link} from 'react-router-dom'
+
 
 let x;
 let y;
@@ -9,14 +8,13 @@ let b;
 let day =0;
 let calendar=0;
 let distance;
-//let place;
 let name1;
 let country1;
 export let lat = a;
 export let lon = b;
-
 export let arrayEmp =[]
 let d=0
+
 function inc() {
 for(let i=0;i<8;i++) {
 d=d+1;
@@ -25,6 +23,7 @@ console.log(arrayEmp[i])
 }
 }
 inc()
+
     let array = [];
     export let arrayArc=[];
     array.push(a)
@@ -32,99 +31,99 @@ inc()
       console.log(array)
       console.log(arrayArc)
 
-     function nextValue(){
-     lat = Number.parseFloat(lat)+ x;
-     x=0
-     if (lat<-90&&lon>-180&&lon<0) {
-      lat =-180-lat;
-      lon = 180+lon
-      alert("Вы достигли полюса")
-     }
-    if (lat>90&&lon>0&&lon<180) {
-    lat=180-lat;
-    lon=lon-180
-    alert("Вы достигли полюса")
-     }
-    let latToString = `|${lat.toString()},`
-    array.push(latToString)
-    arrayArc.push(lat)
-    lon = Number.parseFloat(lon)+ y;
-    y=0
-    if (lon<-180) {
-    lon =lon+360;
-    alert("Вы пересекли нулевой меридиан")
-    }
-    if (lon>180) {
-    lon=lon-360;
-    alert("Вы пересекли нулевой меридиан")
-    }
-    let lonToString = `${lon.toString()}`
-    array.push(lonToString)
-    arrayArc.push(lon)
-    
-    let res= array.join('')
-    console.log(x,y)
-    console.log(day)
-    return [res, arrayArc,calendar]
-    }
+      function nextValue(){
+        lat = Number.parseFloat(lat)+ x;
+        x=0
+        if (lat<-90&&lon>-180&&lon<0) {
+         lat =-180-lat;
+         lon = 180+lon
+         alert("Вы достигли полюса")
+        }
+       if (lat>90&&lon>0&&lon<180) {
+       lat=180-lat;
+       lon=lon-180
+       alert("Вы достигли полюса")
+        }
+       let latToString = `|${lat.toString()},`
+       array.push(latToString)
+       arrayArc.push(lat)
+       lon = Number.parseFloat(lon)+ y;
+       y=0
+       if (lon<-180) {
+       lon =lon+360;
+       alert("Вы пересекли нулевой меридиан")
+       }
+       if (lon>180) {
+       lon=lon-360;
+       alert("Вы пересекли нулевой меридиан")
+       }
+       let lonToString = `${lon.toString()}`
+       array.push(lonToString)
+       arrayArc.push(lon)
+       
+       let res= array.join('')
+       console.log(x,y)
+       console.log(day)
+       return [res, arrayArc,calendar]
+       }
 
-function go(deg, speed) {
-  if(deg>0&&deg<45) {
-      x = -Number(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-      y = -Number(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else 
-  if(deg>45&&deg<90) {
-    x = -Number(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4)
-    y = -Number(speed*Math.sin(deg*Math.PI/180)*86.4/(111.2*Math.cos(lat*Math.PI/180))).toFixed(4)
-  } else
-  if(deg>90&&deg<135) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg>135&&deg<180) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-    } else
-  if(deg>180&&deg<215) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  }else
-  if(deg>215&&deg<270) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg>270&&deg<315) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg>315&&deg<360) {
-    x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-    y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg===0) {
-  x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-  y=0
-  }else
-  if(deg===90) {
-  x=0
-  y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg===180) {
-  x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-  y=0
-  } else
-  if(deg===270) {
-    x=0
-  y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
-  } else
-  if(deg===360) {
-  x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
-  y=0
-  }
-  distance=(speed*86.4).toFixed(1)
-  
-  return [x,y,distance]
- }
+       function go(deg, speed) {
+        if(deg>0&&deg<45) {
+            x = -Number(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+            y = -Number(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else 
+        if(deg>45&&deg<90) {
+          x = -Number(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4)
+          y = -Number(speed*Math.sin(deg*Math.PI/180)*86.4/(111.2*Math.cos(lat*Math.PI/180))).toFixed(4)
+        } else
+        if(deg>90&&deg<135) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg>135&&deg<180) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+          } else
+        if(deg>180&&deg<215) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        }else
+        if(deg>215&&deg<270) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg>270&&deg<315) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg>315&&deg<360) {
+          x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+          y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg===0) {
+        x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+        y=0
+        }else
+        if(deg===90) {
+        x=0
+        y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg===180) {
+        x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+        y=0
+        } else
+        if(deg===270) {
+          x=0
+        y = -(speed*Math.sin(deg*Math.PI/180)*86.4/111).toFixed(4)
+        } else
+        if(deg===360) {
+        x = -(speed*Math.cos(deg*Math.PI/180)*86.4/111).toFixed(4);
+        y=0
+        }
+        distance=(speed*86.4).toFixed(1)
+        
+        return [x,y,distance]
+       }
     
  async function fetchWind() {
     try {
@@ -159,7 +158,7 @@ for (let i=2;i<arrayArc.length; i+=2) {
     document.getElementById('mesto').style.backgroundImage='linear-gradient(to right,white,lightgreen)'
     for(let i =2;i<arrayArc.length-1; i+=2) {
       if(arrayArc[i]===arrayArc[i-2]&&arrayArc[i+1]===arrayArc[i-1]){
-        arrayArc.splice(i,2)}/*else {calendar=calendar+1}*/
+        arrayArc.splice(i,2)}
         console.log(calendar)
       }
       day=(arrayArc.length-2)/2
@@ -181,7 +180,6 @@ async function line2(a,b) {
     }
     document.getElementById('veter').style.backgroundImage='linear-gradient(to right,white,lightgreen)'
     document.getElementById('cartina').style.backgroundImage='none'
-      
   }
 
  
@@ -196,7 +194,7 @@ async function line2(a,b) {
         img.src = URL.createObjectURL(blob);
         } catch (err){
         alert(err)
-    }
+      }
         document.getElementById('mesto').style.backgroundImage='none'
         document.getElementById('veter').style.backgroundImage='linear-gradient(to right,white,lightgreen)'}
   
@@ -302,7 +300,6 @@ const Zoom = ({onNewSize})=> {
    e.preventDefault()
    onNewSize(_z.value)
    return _z
-  // _a.focus()
  }
  return (
    <form onSubmit = {submit}>
@@ -375,15 +372,10 @@ const Place = ({onNewPlace})=> {
         <div>
           <div> Всего расстояние: {d}</div>
           <div>Всего дней: {j}</div>
-          <div>Средняя скорость: {v}</div>
+          <div>Среднедневной перелет: {v}</div>
       </div>)
 }
-   /*const Fly=({days})=>{
-     return (
-       <span>Перелет{days.distance}</span>
-     )
-   }*/
-
+   
   export const Shylda = ({days}) => {
     for (let i = 0;i<days.length; i++) {
   name1 = days[i].name;
@@ -409,131 +401,28 @@ let _jour
       </div>)
 }
 
-/*export const Tablo=({arr}) => { 
-  for (let i = 0;i<6;i++) {
-  let front = document.createElement('div')
-  front.className='front'
-  front.id='front'
-  document.body.appendChild(front)
-}
-
-let tran = document.getElementsByClassName('front')
-  for (let i=0;i<tran.length;i++) {
-    tran[i].setAttribute('id',i)
-    tran[i].style.opacity='0'
-    tran[i].style.transitionProperty ='opacity'
-    tran[i].style.transitionProperty ='transform'
-    tran[i].style.transitionDelay =`0.5s`   
-    tran[i].style.transitionDuration ='1s'
-    let arrayVokrug = ['В','О','К','Р','У','Г']
-    tran[i].innerHTML=arrayVokrug[i]
-  }
-
-     window.addEventListener('load', function() {
-    for (let i =0;i<tran.length;i++) {
-      tran[i].style.opacity = '1'
-      tran[i].style.transform = 'rotateY(-360deg)'
-      tran[i].style.transitionDelay =`${2*i}s`
-      console.log(i);
-      
-  }})
-
-  for (let i = 0;i<5;i++) {
-  let front1 = document.createElement('div')
-  front1.className='front1'
-  front1.id='front1'
-  document.body.appendChild(front1)
-}
-  let tran1 = document.getElementsByClassName('front1')
-  for (let i=0;i<tran1.length;i++) {
-    tran1[i].setAttribute('id',i)
-    tran1[i].style.opacity='0'
-    tran1[i].style.transitionProperty ='opacity'
-    tran1[i].style.transitionProperty ='transform'
-    tran1[i].style.transitionDelay =`0.5s`   
-    tran1[i].style.transitionDuration ='1s'
-    let arrayVokrug1 = ['С', 'В','Е','Т','А']
-    tran1[i].innerHTML=arrayVokrug1[i]
-  }
- 
-           
-        window.addEventListener('load', function() {
-    for (let i =0;i<tran1.length;i++) {
-      tran1[i].style.opacity = '1'
-      tran1[i].style.transform = 'translateX(50px)'
-      tran1[i].style.transitionDelay  ='12s'
-    }
-})
-``
-let calendar1;
-  for (let i = 0;i<arrayEmp.length; i++) {
-      calendar1=arrayEmp.map((i, index)=>i)}
-    return(
-<div id = "markers1"> 
-<div className ='marker_red'></div> 
-<div className ='marker_black'></div> 
-<div className ='marker_blue'></div>
-<div className ='marker_yellow'></div>   
-<div className ='marker_green'></div>   
-</div>)    
-}*/
-
-   
 class Map extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            res:[x,y],
-            src: `https://www.mapquestapi.com/staticmap/v5/map?key=dDGK8sCXjbWcbowd7oVsGzyptmQpGLi4&shape=${x},${y}|0,15&size=1900,950@2x`,
             wind:{
             speed:null,
             deg:null,
-            gust:null},
-            main:{
-            temp:null
-            },
+            gust:null
+          },
+            temp1:null,
             sys: {
             country:null
             },
-            coords:{
-            latt:null,
-            long:null
-           },
-           point: {
-             point:null
-           },
-           picture: {
-             picture:null
-           },
-           largePicture: {
-             largePicture:null
-           },
-           liv: {
-             liv:null
-           },
-           counter: {
-             counter1:0
-           },
-           clouds: {
+            clouds: {
              all:null
             },
             days:[],
             name:null,
-            route:{
-            route:null
-            },
-            jour: {
-              jour:null
-            },
-              increment:null,
-              dist1:null,
-              go1:null,
-              cloudness:false
+            dist1:null,
+            cloudness:false
         }
 
-
-        this.addCoords = this.addCoords.bind(this)
-        this.removeCoords = this.removeCoords.bind(this)
         this.changePicture = this.changePicture.bind(this)
         this.getWind = this.getWind.bind(this)
         this.addPoint= this.addPoint.bind(this)
@@ -542,35 +431,20 @@ class Map extends React.Component {
         this.showPlace=this.showPlace.bind(this)
         this.showJour = this.showJour.bind(this)
         this.showDist = this.showDist.bind(this)
-        this.remDiv1 = this.remDiv1.bind(this)
         this.clean = this.clean.bind(this)
         this.withClouds = this.withClouds.bind(this)
-        this.choose= this.choose.bind(this)
+        this.choose = this.choose.bind(this)
         }
 
-         addCoords() {
-            let res1= nextValue()
-            this.setState({res1})
-            return res1
-        }
-        
-        removeCoords() {
-            let res = [x,y]
-            this.setState({res})
-        }
-
-        async changePicture() {
-    const src =line()
-    this.setState(src)
-    }    
+  async changePicture() {
+     line()
+  }    
 
    async getWind() {
    const {wind, main,clouds,sys, name} = await fetchWind()
-   const{speed,deg, gust}=wind
+   const{speed,deg}=wind
    const {temp} = main
-   const {country} = sys
    const temp1 = (temp -273.15).toFixed(1)
-   const {all} = clouds
    go(deg,speed)
    const coords = {
    latt:speed*86.4/111,
@@ -582,30 +456,26 @@ class Map extends React.Component {
    document.getElementById('cartina').style.backgroundImage='linear-gradient(to right,white,lightgreen)'
    this.setState({wind})
    this.setState({temp1})
-   this.setState(coords)
+   this.setState({coords})
    this.setState({name})
    this.setState({sys})
    this.setState({clouds})
   }
     
-  
   addPoint(a,b) {
-  const point = line2(a,b)
+    line2(a,b)
   lat=a
   lon=b
   array.push(`${a},`)
   array.push(b)
   arrayArc.push(parseFloat(a))
   arrayArc.push(parseFloat(b))
-  if(a>0) {alert(`Окружность Земли на этой широте составляет примерно ${parseFloat(40030-a*40030/90).toFixed(0)} км`)
-  }else{alert(`Окружность Земли на этой широте составляет примерно ${parseFloat(40030+a*40030/90).toFixed(0)} км`)}
   console.log(lat, lon)
   console.log(a,b)
-  this.setState(point)
-   }
+  }
  
    async showPicture() {
-     const picture = line3()
+      line3()
      const {clouds, sys,name} =  await fetchWind();
      const {country} = sys
      const {all} = clouds
@@ -627,41 +497,29 @@ class Map extends React.Component {
     }
       console.log(days)
       console.log(arrayArc[0], lat, lon)
-   this.setState(picture)
-   this.setState({days})
-   this.setState({clouds})
+      this.setState({days})
+      this.setState({clouds})
  }
 
-
    showLargePicture(z) {
-     const largePicture = line4(z)
-     this.setState(largePicture)
-   }
+      line4(z)
+    }
 
    showPlace(place,z) {
-     const liv = line5(place,z)
-     this.setState(liv)
-   }
+      line5(place,z)
+    }
 
      showJour(gt) {
-     const jour = line7(gt)
-     this.setState(jour)
-     }
+        line7(gt)
+    }
+
     showDist(gt) {
       const dist1 = calculate(gt)
       console.log(dist1)
       this.setState({dist1})
     }
 
-      remDiv1() {
-  let node = document.getElementById('markers1')
-  let field = document.getElementById('field')
-  node.parentNode.removeChild(node)
-  field.style.transform='translateY(-700px)'
-  field.style.zIndex='3'
-  }
-
-  clean() {
+    clean() {
     for (let i=0; i<100;i++) {
     let tdClean = document.getElementsByTagName('td')[i]}
     for (let i = 0;i<100;i++) {
@@ -669,7 +527,6 @@ class Map extends React.Component {
       }
       let cloudness = false
       this.setState({cloudness})
-      console.log(this.state.cloudness)
     }
     
     withClouds() {
@@ -683,36 +540,31 @@ class Map extends React.Component {
         }
       let arr2= [];
       let arr3 = []
-      for (let f = 0;f<100;f++) {
-      arr2.push(f)
-    }
-      console.log(arr2)
+        for (let f = 0;f<100;f++) {
+        arr2.push(f)
+        }
       for (let i=0;i<`${cloud}`;i++) {
-        let r = Math.floor(Math.random()*arr2.length)
-        arr3.push(arr2[r])
-        arr2.splice(r,1)
-        console.log(arr3)
-        console.log(cloud)
-      }
-    
+          let r = Math.floor(Math.random()*arr2.length)
+          arr3.push(arr2[r])
+          arr2.splice(r,1)
+          console.log(arr3)
+          console.log(cloud)
+        }
       for (let i=0;i<arr3.length+1;i++) {
-        const array4 = arr3.map(i=>document.getElementById(i).style.opacity='1')
+        arr3.map(i=>document.getElementById(i).style.opacity='1')
       }
-    
       let cloudness= true
       this.setState({cloudness})
     }
       
-
        choose() {
          (this.state.cloudness)?
            this.clean():this.withClouds()
          }
          
      render() {
-        const {addCoords, removeCoords,changePicture, getWind, addPoint, showPicture, showLargePicture, showPlace, showJour, showDist,remDiv1, begin, clean, withClouds, choose}  = this
-        const {res, res1,src,wind,temp1,speed,deg, gust, temp,coords, point, picture, largePicture, liv, clouds,
-        name,sys, days, route, jour, increment, dist1/*, d*/} = this.state
+        const {changePicture, getWind, addPoint, showPicture, showLargePicture, showPlace, showJour, showDist, choose}  = this
+        const {wind,temp1, clouds, name,sys, days, dist1, } = this.state
     return (
         <div>
               <div id="fon1">
@@ -760,17 +612,18 @@ class Map extends React.Component {
             <span>{lat},{lon}</span>
         </div>
                         
-        <div className = {(temp1<-10)?"weather winter":(temp1>-10&&temp1<-5)?"weather autumn":(temp1>-5&&temp1<15)?"weather spring":(temp1>15&&temp1<30)?"weather summer":(temp1>30&&temp1<40)?"weather thirty_five":(temp1>40&&temp1<60)?"weather zacuha":"none1"}style = {{backgroundRepeat:'no-repeat'}}></div> 
+        <div className = {(temp1<-10||temp1===-10)?"weather winter":(temp1>-10&&(temp1<-5||temp1===-5))?"weather autumn":(temp1>-5&&(temp1<15||temp1===15))?"weather spring":(temp1>15&&(temp1<30||temp1===30))?"weather summer":(temp1>30&&(temp1<40||temp1===40))?"weather thirty_five":(temp1>40&&temp1<60)?"weather zacuha":"none"}style = {{backgroundRepeat:'no-repeat'}}></div> 
           <div className = 'term'>
           <div className = "scale" style={{marginLeft:'28px', marginBottom:'49px',height:`${(temp1<0)?(64.57+temp1*1.614):(64.57+temp1*1.614)}px`,width:'4px',backgroundColor:'red',  opacity:'0.7', transitionProperty:'height', transitionDuration:'2s'}}>   </div>
           </div>          
-          
+          <div id= "punkt">Пункт прибытия</div>
+          <div id = "neighbours">По карте</div>
           <div className ="datum" id="datum">
             <div className = "country">Cтрана  {sys.country}</div>
             <div className = "name"> Место  {name}</div>
             <div>Ветер <span className = {(wind.speed>0&&wind.speed<5)?"weak":(wind.speed<10)?"moderate":(wind.speed<18)?"strong":(wind.speed<25)?"storm":(wind.speed>25&&wind.speed<40)?"hurricane":"standart"}> {wind.speed}</span></div>
             <div>Направление {wind.deg}</div>
-            <div>Температура <span className = {(temp1<-30)?"ice":(temp1<25)?"froze":(temp1<20)?"very_cold":(temp1<15)?"cold":(temp1<-10||temp1==-10)?"very_cool":(temp1<-5)?"oool":(temp1<0)?"cool":(temp1>0&&temp1<5)?"zero":(temp1>5&&temp1<15)?"light_warm":(temp1>15&&temp1<25)?"warm":(temp1>25&&temp1<30)?"hot":(temp1>30&&temp1<58)?"heat":"standart"}>{temp1}</span></div>
+            <div>Температура <span className = {(temp1<-30)?"ice":(temp1<25)?"froze":(temp1<20)?"very_cold":(temp1<15)?"cold":(temp1<-10||temp1===-10)?"very_cool":(temp1<-5)?"oool":(temp1<0)?"cool":(temp1>0&&temp1<5)?"zero":(temp1>5&&temp1<15)?"light_warm":(temp1>15&&temp1<25)?"warm":(temp1>25&&temp1<30)?"hot":(temp1>30&&temp1<58)?"heat":"standart"}>{temp1}</span></div>
             
           </div>
 

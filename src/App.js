@@ -1,12 +1,9 @@
 import * as React from "react"
-import './App.css';
 import Map from'./Map.js'
 import {Routes,
-        Route,
-        Link        
-    } from "react-router-dom"
+        Route
+        } from "react-router-dom"
 import {Tablo} from './Tablo.js'
-
 
 function App() {
    return (
