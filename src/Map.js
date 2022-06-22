@@ -308,7 +308,7 @@ const Zoom = ({onNewSize})=> {
    return _z
  }
  return (
-   <form onSubmit = {submit}>
+   <form id ="view" onSubmit = {submit}>
     <input type="number" min = "2" max = "20" step = "1" ref = {input =>_z=input}
     placeholder = "Zoom:4-20" required/>
     <button>Zoom</button>
@@ -324,7 +324,7 @@ const Place = ({onNewPlace})=> {
    return [_place, _z, _lo]
  }
  return (
-   <form onSubmit = {submit}>
+   <form id="place" onSubmit = {submit}>
     <input ref = {input =>_place=input}
           placeholder = "Place/coords" required/>
     <input type="number" min = "2" max = "20" step = "1" ref = {input =>_z=input}
@@ -399,7 +399,7 @@ let _jour
 }
   return (
         <div>
-          <form onSubmit = {submit}>
+    <form id = "jour" onSubmit = {submit}>
     <input ref = {input =>_jour=input}
           type = "number" min = "1" placeholder = "Day" required/>
           <button>Выбрать день</button></form>
@@ -629,8 +629,13 @@ class Map extends React.Component {
         <div>Направление {wind.deg}</div>
         <div>Температура <span className = {(temp1<-30)?"ice":(temp1<25)?"froze":(temp1<20)?"very_cold":(temp1<15)?"cold":(temp1<-10||temp1===-10)?"very_cool":(temp1<-5)?"oool":(temp1<0)?"cool":(temp1>0&temp1<5)?"zero":(temp1>5&&temp1<15)?"light_warm":(temp1>15&&temp1<25)?"warm":(temp1>25&&temp1<30)?"hot":(temp1>30&&temp1<58)?"heat":"standart"}>{temp1}</span></div>
       </div>
-
-    <div className="ramka1"><div id = "ramka1"></div></div>
+      <nav className = "nav">
+        <ul>
+          <li><a href = "#view">Место прибытия</a></li>
+          <li><a href ="#jour">Расстояние по прямой</a></li>
+          </ul>
+      </nav>
+<div className="ramka1"><div id = "ramka1"></div></div>
     <div className="ramka2"><div id = "ramka2"></div></div>
     <div className="ramka3"><div id = "ramka3"></div></div>
     <div className="ramka4"><div id = "ramka4"></div></div>
